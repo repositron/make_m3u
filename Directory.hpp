@@ -3,32 +3,17 @@
 
 #include "alphanum.hpp"
 #include <boost/filesystem.hpp>
-#include <string>
-#include <vector>
 #include <set>
-
-namespace fs = boost::filesystem;
-
 
 class Directory
 {
-
-
 public:
-    Directory(const fs::path Path);
+    Directory(const boost::filesystem::path Path);
     virtual ~Directory();
 private:
-    struct NaturalSortOrder
-    {
-        bool operator()(fs::path& Lhs, fs::path& Rhs)
-        {
-            return true;
-        }
-    } naturalSortOrder_;
     friend class M3uCreate;
-    fs::path path_;
-    //std::vector<fs::path> files_;
-    std::set<fs::path, doj::alphanum_less<fs::path> > files_;
+    boost::filesystem::path path_;
+    std::set<boost::filesystem::path, doj::alphanum_less<boost::filesystem::path> > files_;
 };
 
 #endif

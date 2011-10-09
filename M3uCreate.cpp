@@ -60,11 +60,6 @@ M3uCreate::M3uCreate(const boost::filesystem::path Path, const Directory& TheDir
 
 M3uCreate::~M3uCreate()
 {
-    // TODO Auto-generated destructor stub
-}
-
-void M3uCreate::Process()
-{
 }
 
 

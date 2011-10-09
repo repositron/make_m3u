@@ -17,9 +17,6 @@ public:
     virtual ~M3uCreate();
 private:
     std::string PlayListName(const boost::filesystem::path Path);
-    void Process();
-    std::string GetTime();
-    std::string GetTitle();
 };
 
 #endif /* M3UCREATE_HPP_ */

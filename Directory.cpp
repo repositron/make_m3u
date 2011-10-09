@@ -3,6 +3,7 @@
 #include <string>
 #include "Directory.hpp"
 
+namespace fs = boost::filesystem;
 namespace doj
 {
   int alphanum_comp(const fs::path& l, const fs::path& r)
