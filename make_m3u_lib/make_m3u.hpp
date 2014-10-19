@@ -8,6 +8,6 @@
 #ifndef MAKE_M3U_HPP_
 #define MAKE_M3U_HPP_
 
-void run(int argc, char* argv[]);
+void CreatePlaylists(const std::string Folder);
 
 #endif /* MAKE_M3U_HPP_ */

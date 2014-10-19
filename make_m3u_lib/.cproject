@@ -33,7 +33,8 @@
 									<listOptionValue builtIn="false" value="/stuff/taglib/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Scr}&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.other.other.2106343490" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -std=c++11 -Wunused-variable" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.2106343490" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -Wunused-variable" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.235274118" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++1y" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.550471910" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.lib.debug.683288999" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.debug">
@@ -84,7 +85,8 @@
 									<listOptionValue builtIn="false" value="/stuff/taglib/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Scr}&quot;"/>
 								</option>
-								<option id="gnu.cpp.compiler.option.other.other.222131441" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -std=c++11 -Wunused-variable" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.other.other.222131441" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -Wunused-variable" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.2074781114" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" value="gnu.cpp.compiler.dialect.c++1y" valueType="enumerated"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.2003413120" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.lib.release.1670551516" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.release">
@@ -123,5 +125,13 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/make_m3u_lib"/>
+		</configuration>
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/make_m3u_lib"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>
