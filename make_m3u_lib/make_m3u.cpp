@@ -2,13 +2,14 @@
 #include <set>
 #include <string>
 #include <boost/algorithm/string/erase.hpp>
+#include <iostream>
 
 #include "Directory.hpp"
 #include "M3uCreate.hpp"
 
 namespace fs = boost::filesystem;
 
-int main(int argc, char* argv[])
+void run(int argc, char* argv[])
 {
     if (argc < 2)
     {

@@ -15,7 +15,7 @@ namespace doj
 Directory::Directory(const fs::path Path) : path_(Path)
 {
 
-    std::for_each(fs::directory_iterator(Path), fs::directory_iterator(), [&files_](fs::path i)
+    std::for_each(fs::directory_iterator(Path), fs::directory_iterator(), [&](fs::path i)
     {
         if (fs::is_regular_file(i) && i.extension().string() == ".mp3")
         {

@@ -11,6 +11,7 @@
 
 
 namespace fs = boost::filesystem;
+
 std::string M3uCreate::PlayListName(const boost::filesystem::path Path)
 {
     const std::string suffix = ".m3u";
