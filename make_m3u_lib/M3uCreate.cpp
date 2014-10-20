@@ -27,6 +27,7 @@ M3uCreate::M3uCreate(const boost::filesystem::path Path, const Directory& TheDir
         throw std::runtime_error("Can't open" + plsFileName);
 
     file << "#EXTM3U\n";
+
     std::for_each(TheDirectory.files_.begin(), TheDirectory.files_.end(), [&file, &Mp3TagFact](const fs::path i) {
     	std::unique_ptr<Mp3TagInterface> mp3Tag = Mp3TagFact.CreateMp3Tag(i);
         file << "#EXTINF:" << mp3Tag->GetLength() << "," << mp3Tag->GetTitle() << '\n';
@@ -36,10 +37,6 @@ M3uCreate::M3uCreate(const boost::filesystem::path Path, const Directory& TheDir
     //std::cout << plsFileName << '\n';
 }
 
-void M3uCreate::WritePlayListEntry(const boost::filesystem::path Mp3File, std::ofstream& File)
-{
-
-}
 
 M3uCreate::~M3uCreate()
 {

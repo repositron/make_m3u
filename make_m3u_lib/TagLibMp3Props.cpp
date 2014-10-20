@@ -8,10 +8,9 @@
 #include <taglib/fileref.h>
 #include <taglib/tag.h>
 
-#include "Mp3TagInterface.hpp"
 #include "TagLibMp3Props.hpp"
 
-TagLibMp3Props::TagLibMp3Props(const boost::filesystem::path Path) : Mp3TagInterface(Path), length_(0)
+TagLibMp3Props::TagLibMp3Props(const boost::filesystem::path Path) : length_(0)
 {
 	TagLib::FileRef f(Path.c_str());
 	if(!f.isNull() && f.tag())
@@ -39,15 +38,11 @@ TagLibMp3Props::~TagLibMp3Props()
 std::string TagLibMp3Props::GetTitle() const
 {
 
-	return "";
+	return title_;
 }
 
-std::string TagLibMp3Props::GetFilename() const
-{
-	return "";
-}
 
 int TagLibMp3Props::GetLength() const
 {
-	return 0;
+	return length_;
 }

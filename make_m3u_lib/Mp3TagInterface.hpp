@@ -13,10 +13,9 @@
 class Mp3TagInterface
 {
 public:
-	Mp3TagInterface(const boost::filesystem::path Path);
-	virtual ~Mp3TagInterface();
+
+	virtual ~Mp3TagInterface() { }
 	virtual std::string GetTitle() const = 0;
-	virtual std::string GetFilename() const = 0;
 	virtual int GetLength() const = 0;
 };
 

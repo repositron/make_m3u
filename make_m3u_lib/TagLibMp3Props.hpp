@@ -17,12 +17,11 @@ public:
 	TagLibMp3Props(const boost::filesystem::path Path);
 	virtual ~TagLibMp3Props();
 	virtual std::string GetTitle() const override;
-	virtual std::string GetFilename() const override;
 	virtual int GetLength() const override;
 private:
 	std::string title_;
 	std::string filename_;
-	std::string length_;
+	int length_;
 };
 
 #endif /* TAGLIBMP3PROPS_H_ */

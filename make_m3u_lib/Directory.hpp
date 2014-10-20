@@ -4,12 +4,15 @@
 #include "alphanum.hpp"
 #include <boost/filesystem.hpp>
 #include <set>
+#include <functional>
 
+// list of ordered mp3 files in folder
 class Directory
 {
 public:
     Directory(const boost::filesystem::path Path);
     virtual ~Directory();
+    void Process();
 private:
     friend class M3uCreate;
     boost::filesystem::path path_;
