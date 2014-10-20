@@ -7,14 +7,16 @@
 #include <functional>
 
 // list of ordered mp3 files in folder
-class Directory
+class SortedDirectory
 {
 public:
-    Directory(const boost::filesystem::path Path);
-    virtual ~Directory();
-    void Process();
+    SortedDirectory(const boost::filesystem::path Path);
+    virtual ~SortedDirectory();
+    typedef std::set<boost::filesystem::path, doj::alphanum_less<boost::filesystem::path> >::const_iterator const_iterator;
+    // expose iterator for files_
+    const_iterator cbegin() const;
+    const_iterator cend() const;
 private:
-    friend class M3uCreate;
     boost::filesystem::path path_;
     std::set<boost::filesystem::path, doj::alphanum_less<boost::filesystem::path> > files_;
 };

@@ -14,26 +14,24 @@ std::string M3uCreate::GeneratePlayListName(const boost::filesystem::path Path)
     return playListFileName;
 }
 
-M3uCreate::M3uCreate(const boost::filesystem::path Path, const Directory& TheDirectory, Mp3TagFactory& Mp3TagFact)
+M3uCreate::M3uCreate(const boost::filesystem::path Path, const SortedDirectory& TheDirectory, std::ostream& OutStream, Mp3TagFactory& Mp3TagFact)
 {
     if (!fs::is_directory(Path))
     {
     	throw std::runtime_error(Path.string() + " isn't a path");
     }
 
-    std::string plsFileName = GeneratePlayListName(Path);
-    std::ofstream file(plsFileName);
-    if (!file.good())
-        throw std::runtime_error("Can't open" + plsFileName);
+    if (!OutStream.good())
+        throw std::runtime_error("Can't open output stream");
 
-    file << "#EXTM3U\n";
+    OutStream << "#EXTM3U\n";
 
-    std::for_each(TheDirectory.files_.begin(), TheDirectory.files_.end(), [&file, &Mp3TagFact](const fs::path i) {
+    std::for_each(TheDirectory.cbegin(), TheDirectory.cend(), [&OutStream, &Mp3TagFact](const fs::path i) {
     	std::unique_ptr<Mp3TagInterface> mp3Tag = Mp3TagFact.CreateMp3Tag(i);
-        file << "#EXTINF:" << mp3Tag->GetLength() << "," << mp3Tag->GetTitle() << '\n';
-        file << i.filename().string() << '\n';
+    	OutStream << "#EXTINF:" << mp3Tag->GetLength() << "," << mp3Tag->GetTitle() << '\n';
+    	OutStream << i.filename().string() << '\n';
     });
-    file << std::endl;
+    OutStream << std::endl;
     //std::cout << plsFileName << '\n';
 }
 

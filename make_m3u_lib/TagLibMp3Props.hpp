@@ -20,7 +20,6 @@ public:
 	virtual int GetLength() const override;
 private:
 	std::string title_;
-	std::string filename_;
 	int length_;
 };
 

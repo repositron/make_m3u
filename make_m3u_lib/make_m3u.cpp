@@ -2,9 +2,9 @@
 #include <set>
 #include <string>
 #include <boost/algorithm/string/erase.hpp>
+#include <fstream>
 #include <iostream>
-
-#include "Directory.hpp"
+#include "SortedDirectory.hpp"
 #include "M3uCreate.hpp"
 
 namespace fs = boost::filesystem;
@@ -27,11 +27,12 @@ void CreatePlaylists(const std::string Folder)
 		Mp3TagFactory mp3TagFactory;
 		std::for_each(fs::directory_iterator(rootPath), fs::directory_iterator(), [&mp3TagFactory](fs::path i)
 		{
-			std::cout << i.string() << '\n';
+			// generate playlist for each directory.
 			if (fs::is_directory(i))
 			{
-				Directory directory(i);
-				M3uCreate m3uCreate(i, directory, mp3TagFactory);
+				std::ofstream playListFile(M3uCreate::GeneratePlayListName(i));
+				SortedDirectory directory(i);
+				M3uCreate m3uCreate(i, directory, playListFile, mp3TagFactory);
 			}
 		});
     }

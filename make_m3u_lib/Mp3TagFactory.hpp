@@ -20,7 +20,7 @@ class Mp3TagFactory {
 public:
 	Mp3TagFactory()
 	{
-		createFn_ = std::bind(&Mp3TagFactory::CreateTagLib, this, std::placeholders::_1);
+		createFn_ = std::bind(&Mp3TagFactory::CreateTagLibProduct, this, std::placeholders::_1);
 	}
 	virtual ~Mp3TagFactory()
 	{
@@ -33,14 +33,16 @@ public:
 	{
 		return createFn_(Path);
 	}
-	std::unique_ptr<Mp3TagInterface> CreateTagLib(const boost::filesystem::path Path)
+
+	// use TagLib
+	std::unique_ptr<Mp3TagInterface> CreateTagLibProduct(const boost::filesystem::path Path)
 	{
 		std::unique_ptr<Mp3TagInterface> mp3tag(new TagLibMp3Props(Path));
 		return mp3tag;
 	}
 
 private:
-	std::function<std::unique_ptr<Mp3TagInterface> (const boost::filesystem::path Path)> createFn_;
+	std::function<std::unique_ptr<Mp3TagInterface> (const boost::filesystem::path Path)> createFn_; // current product factory creates
 };
 
 #endif /* MP3TAGFACTORY_H_ */
